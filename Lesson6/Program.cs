@@ -99,6 +99,8 @@ namespace Lesson6
         /// <param name="a">Начало интервала расчёта</param>
         /// <param name="b">Окончание интервала расчёта</param>
         /// <param name="dx">Шаг вычисления функции</param>
+        /// <exception cref="ArgumentNullException">Если f == null</exception>
+        /// <exception cref="InvalidOperationException">Если b-a &lt; dx</exception>
         public static void Tabulate(Function f, double a, double b, double dx)
         {
             if(f is null) throw new ArgumentNullException(nameof(f));
@@ -120,7 +122,9 @@ namespace Lesson6
         /// <param name="a">Начало интервала интегрирования</param>
         /// <param name="b">Конец интервала интегрирования</param>
         /// <param name="dx">Шаг вычисления интеграла</param>
-        /// <returns>Значение интеграла</returns>
+        /// <returns>Значение интеграла</returns>    
+        /// <exception cref="ArgumentNullException">Если f == null</exception>
+        /// <exception cref="InvalidOperationException">Если b-a &lt; dx</exception>
         public static double Integrate(Function f, double a, double b, double dx)
         {
             if (f is null) throw new ArgumentNullException(nameof(f));

@@ -188,7 +188,9 @@ namespace IOTestingProject
 
         /// <summary>Читаем данные о списке студентов из файла</summary>
         /// <param name="FileName">Путь к файлу с данными списка студентов</param>
-        /// <returns>Список студентов</returns>
+        /// <returns>Список студентов</returns>    
+        /// <exception cref="ArgumentNullException">Если FileName == null</exception>
+        /// <exception cref="FileNotFoundException">Файл не существует</exception>
         private static List<Student> ReadData(string FileName)
         {
             if (FileName == null) throw new ArgumentNullException(nameof(FileName));
@@ -285,6 +287,8 @@ namespace IOTestingProject
 
         /// <summary>Инициализация нового студента</summary>
         /// <param name="data">Массив с элементами данных студента в текстовом виде</param>
+        /// <exception cref="ArgumentNullException">Если data == null</exception>
+        /// <exception cref="ArgumentException">Если data.Length != 9</exception>
         public Student(string[] data)
         {
             if (data == null) throw new ArgumentNullException(nameof(data));
